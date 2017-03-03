@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on MMbros</title>
+    <link>http://mmbros.github.io/tags/git/index.xml</link>
+    <description>Recent content in Git on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <atom:link href="http://mmbros.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Git</title>
+      <link>http://mmbros.github.io/post/git/</link>
+      <pubDate>Thu, 12 Nov 2015 22:21:50 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/git/</guid>
+      <description>&lt;p&gt;Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt; homepage&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.atlassian.com/git/tutorials/setting-up-a-repository&#34;&gt;Become a git guru&lt;/a&gt; Getting Git right, with tutorials, news and tips&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

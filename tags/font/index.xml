@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Font on MMbros</title>
+    <link>http://mmbros.github.io/tags/font/index.xml</link>
+    <description>Recent content in Font on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <atom:link href="http://mmbros.github.io/tags/font/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>font</title>
+      <link>http://mmbros.github.io/post/font/</link>
+      <pubDate>Fri, 13 Nov 2015 23:42:59 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/font/</guid>
+      <description>
+
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://icomoon.io/&#34;&gt;IcoMoon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://icomoon.io/app&#34;&gt;Build Custom Fonts&lt;/a&gt; IcoMoon App&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.typicons.com/more/resources/&#34;&gt;Typeicons&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming Language on MMbros</title>
+    <link>http://mmbros.github.io/tags/programming-language/index.xml</link>
+    <description>Recent content in Programming Language on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <atom:link href="http://mmbros.github.io/tags/programming-language/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Node.js</title>
+      <link>http://mmbros.github.io/post/nodejs/</link>
+      <pubDate>Tue, 03 Nov 2015 23:57:21 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/nodejs/</guid>
+      <description>&lt;p&gt;Node.js is a JavaScript runtime built on Chrome&amp;rsquo;s V8 JavaScript engine.
+Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.
+Node.js&amp;rsquo; package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+&lt;/p&gt;
+
+&lt;h3 id=&#34;links&#34;&gt;Links&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; homepage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
+
+&lt;h3 id=&#34;links-1&#34;&gt;Links&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nodejs.org/dist/v0.12.0/node-v0.12.0.tar.gz&#34;&gt;Node.js Downloads&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/joyent/node/wiki/installation&#34;&gt;Installing/Building Node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;build-instruction&#34;&gt;Build instruction&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;download source code from &lt;a href=&#34;http://nodejs.org/&#34;&gt;nodejs.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget http://nodejs.org/dist/v0.12.0/node-v0.12.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;extract and change directory&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ tar -zxf node-v0.12.0.tar.gz
+$ cd node-v0.12.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;build and install (in a local folder)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./configure
+$ make
+$ make install PREFIX=$HOME/local
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;package-json&#34;&gt;package.json&lt;/h2&gt;
+
+&lt;h3 id=&#34;create&#34;&gt;create&lt;/h3&gt;
+
+&lt;p&gt;Interactively create a package.json file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npn init
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Go Programming Language</title>
+      <link>http://mmbros.github.io/post/golang/</link>
+      <pubDate>Sat, 31 Oct 2015 23:12:13 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/golang/</guid>
+      <description>
+
+&lt;p&gt;Go is an open source programming language that makes it easy to build simple,
+reliable, and efficient software&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://golang.org/&#34;&gt;golang.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;wikipedia.en&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;Install to a custom location and workspace setup:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://golang.org/doc/install#tarball&#34;&gt;GOROOT&lt;/a&gt;: &lt;code&gt;$HOME/local/go&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://golang.org/doc/code.html#GOPATH&#34;&gt;GOPATH&lt;/a&gt;: &lt;code&gt;$HOME/Code/go&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For full install instruction see &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;Getting Started&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://golang.org/dl/&#34;&gt;Download the archive&lt;/a&gt; and extract the archive into the destination folder.
+For example extract the archive into &lt;code&gt;$HOME/local&lt;/code&gt;, creating a Go tree in &lt;code&gt;$HOME/local/go&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tar -C $HOME/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Assuming that &lt;code&gt;$HOME/local/bin&lt;/code&gt; is in &lt;code&gt;$PATH&lt;/code&gt;,
+create in the &lt;code&gt;$HOME/local/bin&lt;/code&gt; folder the symlinks to the &lt;code&gt;$HOME/local/go/bin&lt;/code&gt; files:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for i in $HOME/local/go/bin/\*; do ln -s &amp;quot;$i&amp;quot; $(basename &amp;quot;$i&amp;quot;); done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add the following commands to $HOME/.profile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export GOROOT=$HOME/local/go
+export GOPATH=$HOME/Code/go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: &lt;code&gt;GOROOT&lt;/code&gt; must be set only when installing to a custom location.&lt;/p&gt;
+
+&lt;h1 id=&#34;notes&#34;&gt;NOTES&lt;/h1&gt;
+
+&lt;h2 id=&#34;train&#34;&gt;train&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/shaoshing/train&#34;&gt;train&lt;/a&gt; Asset Management for web app using Golang&lt;/p&gt;
+
+&lt;h2 id=&#34;wellington&#34;&gt;wellington&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://getwt.io/docs/install/&#34;&gt;Building from Source (any OS)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Prerequisites &lt;code&gt;go&lt;/code&gt;, &lt;code&gt;gcc&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get github.com/wellington/wellington
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If &lt;code&gt;go get&lt;/code&gt; fails, try the makefile preqrequisites &lt;code&gt;autotools&lt;/code&gt;, &lt;code&gt;libtool&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $(GOPATH)/src/github.com/wellington/wellington
+make
+wt -v
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ensure that &lt;code&gt;$GOPATH/bin&lt;/code&gt; in in &lt;code&gt;$PATH&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markup on MMbros</title>
+    <link>http://mmbros.github.io/tags/markup/index.xml</link>
+    <description>Recent content in Markup on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <atom:link href="http://mmbros.github.io/tags/markup/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Markdown</title>
+      <link>http://mmbros.github.io/post/markdown/</link>
+      <pubDate>Sat, 31 Oct 2015 22:58:05 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/markdown/</guid>
+      <description>&lt;p&gt;Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Daring Fireball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;wikipedia.en&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jbt.github.io/markdown-editor/&#34;&gt;(GitHub-Flavored) Markdown Editor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

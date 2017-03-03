@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>The Go Programming Language</title>
+  
+  <meta name="author" content="MMbros"/>
+  <meta name="generator" content="Hugo 0.20-DEV" />
+  <link href='http://mmbros.github.io//img/favicon.ico' rel='icon' type='image/x-icon'/>
+
+  <link rel="alternate" href="http://mmbros.github.io/index.xml" type="application/rss+xml" title="MMbros">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://mmbros.github.io//css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://mmbros.github.io//css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://mmbros.github.io//css/highlight.min.css">
+  
+  
+  <meta property="og:title" content="The Go Programming Language" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/post/golang/" />
+  <meta property="og:image" content="/img/avatar-icon.png" />
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://mmbros.github.io/">MMbros</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+          <a title="Blog" href="http://mmbros.github.io/">Blog</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Tags" href="http://mmbros.github.io/tags">Tags</a>
+  	      </li>
+  	    
+      
+      </ul>
+    </div>
+
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+      
+          <a title="MMbros" href="http://mmbros.github.io/">
+              <img class="avatar-img" src="http://mmbros.github.io//img/avatar-icon.png" alt="MMbros" />
+          </a>
+      
+	  </div>
+	</div>
+
+  </div>
+</nav>
+
+    
+
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>The Go Programming Language</h1>
+      
+      
+      
+      <span class="post-meta">Posted on October 31, 2015</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </header>
+
+
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          
+
+<p>Go is an open source programming language that makes it easy to build simple,
+reliable, and efficient software</p>
+
+<ul>
+<li><a href="https://golang.org/">golang.org</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Go_%28programming_language%29">wikipedia.en</a></li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Install to a custom location and workspace setup:</p>
+
+<ul>
+<li><a href="https://golang.org/doc/install#tarball">GOROOT</a>: <code>$HOME/local/go</code></li>
+<li><a href="https://golang.org/doc/code.html#GOPATH">GOPATH</a>: <code>$HOME/Code/go</code></li>
+</ul>
+
+<p>For full install instruction see <a href="https://golang.org/doc/install">Getting Started</a>.</p>
+
+<p><a href="https://golang.org/dl/">Download the archive</a> and extract the archive into the destination folder.
+For example extract the archive into <code>$HOME/local</code>, creating a Go tree in <code>$HOME/local/go</code>:</p>
+
+<pre><code>tar -C $HOME/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+</code></pre>
+
+<p>Assuming that <code>$HOME/local/bin</code> is in <code>$PATH</code>,
+create in the <code>$HOME/local/bin</code> folder the symlinks to the <code>$HOME/local/go/bin</code> files:</p>
+
+<pre><code>for i in $HOME/local/go/bin/\*; do ln -s &quot;$i&quot; $(basename &quot;$i&quot;); done
+</code></pre>
+
+<p>Add the following commands to $HOME/.profile:</p>
+
+<pre><code>export GOROOT=$HOME/local/go
+export GOPATH=$HOME/Code/go
+</code></pre>
+
+<p>Note: <code>GOROOT</code> must be set only when installing to a custom location.</p>
+
+<h1 id="notes">NOTES</h1>
+
+<h2 id="train">train</h2>
+
+<p><a href="https://github.com/shaoshing/train">train</a> Asset Management for web app using Golang</p>
+
+<h2 id="wellington">wellington</h2>
+
+<p><a href="http://getwt.io/docs/install/">Building from Source (any OS)</a></p>
+
+<p>Prerequisites <code>go</code>, <code>gcc</code></p>
+
+<pre><code>go get github.com/wellington/wellington
+</code></pre>
+
+<p>If <code>go get</code> fails, try the makefile preqrequisites <code>autotools</code>, <code>libtool</code></p>
+
+<pre><code>cd $(GOPATH)/src/github.com/wellington/wellington
+make
+wt -v
+</code></pre>
+
+<p>Ensure that <code>$GOPATH/bin</code> in in <code>$PATH</code>.</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="http://mmbros.github.io/post/markdown/" data-toggle="tooltip" data-placement="top" title="Markdown">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="http://mmbros.github.io/post/atom/" data-toggle="tooltip" data-placement="top" title="Atom">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          <li>
+            <a href="mailto:server.mmbros@yandex.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+          <li>
+            <a href="https://github.com/mmbros" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+          
+		      
+          
+	    	  
+           
+           
+          
+          
+          
+          
+          
+
+    		  <li>
+      			<a href="http://mmbros.github.io/index.xml" title="RSS">
+      			  <span class="fa-stack fa-lg">
+        				<i class="fa fa-circle fa-stack-2x"></i>
+        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      			  </span>
+      			</a>
+    		  </li>		
+
+        </ul>
+        <p class="credits copyright text-muted">
+    	  MMbros
+    	  &nbsp;&bull;&nbsp;
+    	  2017
+    		  
+    	  
+    	  &nbsp;&bull;&nbsp;
+    	  <a href="http://mmbros.github.io/">MMbros</a>
+    	  
+  	    </p>
+  	    
+    	<p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.20-DEV</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+    	</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://mmbros.github.io//js/main.js"></script>
+<script src="http://mmbros.github.io//js/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on MMbros</title>
+    <link>http://mmbros.github.io/tags/linux/index.xml</link>
+    <description>Recent content in Linux on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <atom:link href="http://mmbros.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>NFS - Network File System</title>
+      <link>http://mmbros.github.io/post/nfs/</link>
+      <pubDate>Sun, 01 Nov 2015 23:12:31 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/nfs/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Network_File_System&#34;&gt;Network File System&lt;/a&gt;, a distributed file system protocol&lt;/p&gt;
+
+&lt;h2 id=&#34;client&#34;&gt;Client&lt;/h2&gt;
+
+&lt;h3 id=&#34;fstab&#34;&gt;fstab&lt;/h3&gt;
+
+&lt;h4 id=&#34;delaying-a-nfs-mount-in-etc-fstab-on-system-boot&#34;&gt;Delaying a NFS mount in &lt;code&gt;/etc/fstab&lt;/code&gt; on system boot.&lt;/h4&gt;
+
+&lt;p&gt;Mounts as &lt;code&gt;noauto,users&lt;/code&gt; makes it possible for a user to mount it whenever its ready.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;192.168.1.2:/export/share /media/SHARED nfs noauto,users,defaults 0 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;server&#34;&gt;Server&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

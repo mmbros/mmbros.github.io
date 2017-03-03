@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring on MMbros</title>
+    <link>http://mmbros.github.io/tags/monitoring/index.xml</link>
+    <description>Recent content in Monitoring on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <atom:link href="http://mmbros.github.io/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>monitoring</title>
+      <link>http://mmbros.github.io/post/monitoring/</link>
+      <pubDate>Wed, 13 Apr 2016 23:25:21 +0200</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/monitoring/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://influxdata.com/&#34;&gt;InfluxDB&lt;/a&gt; The platform for Storing/Managing/Collecting time-series data&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/influxdata/influxdb/tree/master/client&#34;&gt;InfluxDB Client&lt;/a&gt; A Go client library written and maintained by the InfluxDB team&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://grafana.org/&#34;&gt;Grafana&lt;/a&gt; Grafana provides a powerful and elegant way to create, explore, and share dashboards and data with your team and the world&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;influxdb&#34;&gt;InfluxDB&lt;/h2&gt;
+
+&lt;p&gt;InfluxDB is a time series database built from the ground up to handle high write and query loads. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.&lt;/p&gt;
+
+&lt;h4 id=&#34;key-features&#34;&gt;Key Features&lt;/h4&gt;
+
+&lt;p&gt;Here are some of the features that InfluxDB currently supports that make it a great choice for working with time series data.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Custom high performance datastore written specifically for time series data. The TSM engine allows for high ingest speed and data compression.&lt;/li&gt;
+&lt;li&gt;Written entirely in Go. It compiles into a single binary with no external dependencies.&lt;/li&gt;
+&lt;li&gt;Clustering is built in. Nothing else is needed to make data highly available (unlike Redis, ZooKeeper, Cassandra, and others).&lt;/li&gt;
+&lt;li&gt;Simple, high performing write and query HTTP(S) APIs.&lt;/li&gt;
+&lt;li&gt;Plugins support for other data ingestion protocols such as Graphite, collectd, and OpenTSDB.&lt;/li&gt;
+&lt;li&gt;Expressive SQL-like query language tailored to easily query aggregated data.&lt;/li&gt;
+&lt;li&gt;Tags allow series to be indexed for fast and efficient queries.&lt;/li&gt;
+&lt;li&gt;Retention policies efficiently auto-expire stale data.&lt;/li&gt;
+&lt;li&gt;Continuous queries automatically compute aggregate data to make frequent queries more efficient.&lt;/li&gt;
+&lt;li&gt;Built in web admin interface.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;Installation instructions for OS: &lt;strong&gt;Ubuntu &amp;amp; Debian (64-bit)&lt;/strong&gt; and InfluxDB version: &lt;strong&gt;Stable v0.12.1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Download &lt;code&gt;.deb&lt;/code&gt; file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://s3.amazonaws.com/influxdb/influxdb_0.12.1-1_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check &lt;code&gt;.deb&lt;/code&gt; file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &#39;465e6cd66eb6dd23592386ce7d19136f  influxdb_0.12.1-1_amd64.deb&#39; |  md5sum -c
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install &lt;code&gt;.deb&lt;/code&gt; file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo dpkg -i influxdb_0.12.1-1_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Start the &lt;code&gt;influxd&lt;/code&gt; server by&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;starting the service: &lt;code&gt;service influxdb start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;or running &lt;code&gt;influxd&lt;/code&gt; directly in a shell&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Execute &lt;code&gt;influx&lt;/code&gt; to start the CLI and automatically connect to the local InfluxDB instance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create and show a database&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;create database mydb
+show databases
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;grafana&#34;&gt;Grafana&lt;/h2&gt;
+
+&lt;h3 id=&#34;install-3-0-beta&#34;&gt;Install 3.0 Beta&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.grafana.org/installation/debian/&#34;&gt;http://docs.grafana.org/installation/debian/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ wget https://grafanarel.s3.amazonaws.com/builds/grafana_3.0.0-beta41460581169_amd64.deb
+  $ sudo apt-get install -y adduser libfontconfig
+  $ sudo dpkg -i grafana_3.0.0-beta41460581169_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;start-the-server-init-d-service&#34;&gt;Start the server (init.d service)&lt;/h3&gt;
+
+&lt;p&gt;Start Grafana by running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ sudo service grafana-server start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will start the grafana-server process as the grafana user, which was created during the package installation. The default HTTP port is 3000 and default user and group is admin.&lt;/p&gt;
+
+&lt;p&gt;To configure the Grafana server to start at boot time:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ sudo update-rc.d grafana-server defaults 95 10
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
