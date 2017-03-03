@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>MMbros</title>
-  
+  <title>Deploy Hugo site on GitHub</title>
+  <meta name="description" content="Description">
   <meta name="author" content="MMbros"/>
   <meta name="generator" content="Hugo 0.20-DEV" />
   <link href='http://mmbros.github.io//img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="http://mmbros.github.io//css/highlight.min.css">
   
   
-  <meta property="og:title" content="MMbros" />
+  <meta property="og:title" content="Deploy Hugo site on GitHub" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/" />
+  <meta property="og:url" content="/post/deploy-hugo-site-on-github/" />
   <meta property="og:image" content="/img/avatar-icon.png" />
   
 </head>
@@ -76,155 +76,115 @@
   </div>
 </nav>
 
+    
 
-    <header class="header-section ">
-      <div class="intro-header no-img">
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Deploy Hugo site on GitHub</h1>
+      
+      
+      
+      <span class="post-meta">Posted on March 3, 2017</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </header>
+
+
+    <div class="container" role="main">	  
+      
         <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h1>MMbros</h1>
-                
-                  <hr class="small">
-                  <span class="page-subheading">Raccolta indifferenziata della qualunque</span>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-    <div role="main" class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="posts-list">
-            
-            
-            <article class="post-preview">
-              <a href="http://mmbros.github.io/post/golang/">
-          	  <h2 class="post-title">The Go Programming Language</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on October 31, 2015
-              </p>
-              <div class="post-entry">
-              
-                Go is an open source programming language that makes it easy to build simple, reliable, and efficient software
- golang.org wikipedia.en  Installation Install to a custom location and workspace setup:
- GOROOT: $HOME/local/go GOPATH: $HOME/Code/go  For full install instruction see Getting Started.
-Download the archive and extract the archive into the destination folder. For example extract the archive into $HOME/local, creating a Go tree in $HOME/local/go:
-tar -C $HOME/local -xzf go$VERSION.
-                <a href="http://mmbros.github.io/post/golang/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="http://mmbros.github.io/tags/golang">golang</a>&nbsp;
-		  
-	            #<a href="http://mmbros.github.io/tags/programming-language">programming-language</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="http://mmbros.github.io/post/markdown/">
-          	  <h2 class="post-title">Markdown</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on October 31, 2015
-              </p>
-              <div class="post-entry">
-              
-                <p>Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats</p>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          <p>Links:</p>
 
 <ul>
-<li><a href="http://daringfireball.net/projects/markdown/">Daring Fireball</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Markdown">wikipedia.en</a></li>
-<li><a href="https://jbt.github.io/markdown-editor/">(GitHub-Flavored) Markdown Editor</a></li>
+<li><a href="http://gohugo.io/tutorials/github-pages-blog/#hosting-personal-organization-pages">Hugo - Hosting on GitHub Personal/Organization Pages</a></li>
+<li><a href="http://rcoedo.com/post/hugo-static-site-generator/">Deploy your blog to github pages automatically using Hugo and Travis</a></li>
 </ul>
 
-              
-              </div>
+<p>We’ll create two separate repos, one for Hugo’s content, and a git submodule
+with the public folder’s content in it.</p>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="http://mmbros.github.io/tags/web">web</a>&nbsp;
-		  
-	            #<a href="http://mmbros.github.io/tags/html">html</a>&nbsp;
-		  
-	            #<a href="http://mmbros.github.io/tags/markup">markup</a>&nbsp;
-		  
-	        </span>
-	      
+<p>Step by step:</p>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="http://mmbros.github.io/post/bootstrap/">
-          	  <h2 class="post-title">Bootstrap</h2>
-          	
-          	    
-              </a>
+<ol>
+<li>Create on GitHub <code>&lt;your-project&gt;-hugo</code> repository (it will host Hugo’s
+content)</li>
+<li>Create on GitHub <code>&lt;username&gt;.github.io</code> repository (it will host the <code>public</code>
+folder: the static website)</li>
+<li><code>git clone &lt;&lt;your-project&gt;-hugo-url&gt; &amp;&amp; cd &lt;your-project&gt;-hugo</code></li>
+<li>Make your website work locally (<code>hugo server --watch</code>)</li>
+<li>Once you are happy with the results, <kbd>Ctrl+C</kbd> (kill
+server) and <code>rm -rf public</code> (don&rsquo;t worry, it can always be regenerated
+with <code>hugo</code>)</li>
+<li><code>git submodule add -b master https://github.com/&lt;username&gt;/&lt;username&gt;.github.io public</code></li>
 
-              <p class="post-meta">
-                Posted on October 31, 2015
-              </p>
-              <div class="post-entry">
-              
-                <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web</p>
+<li><p>Almost done: add a <code>deploy.sh</code> script to help you (and make it executable:
+<code>chmod +x deploy.sh</code>):</p>
 
-<ul>
-<li><a href="http://getbootstrap.com/">Bootstrap Homepage</a></li>
-<li><a href="http://bootswatch.com/">Bootswatch</a> Free themes for Bootstrap</li>
-<li><a href="https://wrapbootstrap.com/">{wrap}bootstrap</a> Bootstrap Themes &amp; Templates</li>
-</ul>
+<pre><code>#!/bin/bash
+echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
 
-              
-              </div>
+# Build the project.
+hugo # if using a theme, replace by `hugo -t &lt;yourtheme&gt;`
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="http://mmbros.github.io/tags/web">web</a>&nbsp;
-		  
-	            #<a href="http://mmbros.github.io/tags/html">html</a>&nbsp;
-		  
-	            #<a href="http://mmbros.github.io/tags/css">css</a>&nbsp;
-		  
-	            #<a href="http://mmbros.github.io/tags/stylesheet">stylesheet</a>&nbsp;
-		  
-	        </span>
-	      
+# Go To Public folder
+cd public
 
-             </article>
-            
-          </div>
+# Add changes to git.
+git add -A
 
-          
-          <ul class="pager main-pager">
-            
-            <li class="previous">
-              <a href="http://mmbros.github.io/page/1">&larr; Newer Posts</a>
-            </li>
-            
-            
-          </ul>
-          
-        </div>
-      </div>
+# Commit changes.
+MSG=&quot;rebuilding site `date`&quot;
+if [ $# -eq 1 ]
+  then MSG=&quot;$1&quot;
+fi
+git commit -m &quot;$MSG&quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back
+cd ..
+</code></pre></li>
+
+<li><p><code>./deploy.sh &quot;Your optional commit message&quot;</code> to send changes to <code>&lt;username&gt;.github.io</code> (careful, you may also want to commit changes on the <code>&lt;your-project&gt;-hugo</code> repo).</p></li>
+</ol>
+
+<p>That&rsquo;s it! Your personal page is running at <a href="http://username.github.io/">http://username.github.io/</a> (after up to 10 minutes delay).</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="http://mmbros.github.io/post/about-this-site/" data-toggle="tooltip" data-placement="top" title="About this site">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
     </div>
 
     <footer>

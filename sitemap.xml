@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mmbros.github.io/post/deploy-hugo-site-on-github/</loc>
+    <lastmod>2017-03-03T22:46:54+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mmbros.github.io/post/about-this-site/</loc>
     <lastmod>2017-03-03T15:58:00+00:00</lastmod>
   </url>
@@ -91,6 +96,12 @@
   </url>
   
   <url>
+    <loc>http://mmbros.github.io/tags/github/</loc>
+    <lastmod>2017-03-03T22:46:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://mmbros.github.io/tags/golang/</loc>
     <lastmod>2016-04-13T23:25:21+02:00</lastmod>
     <priority>0</priority>
@@ -98,7 +109,13 @@
   
   <url>
     <loc>http://mmbros.github.io/tags/html/</loc>
-    <lastmod>2015-11-03T23:38:29+01:00</lastmod>
+    <lastmod>2017-03-03T22:46:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mmbros.github.io/tags/hugo/</loc>
+    <lastmod>2017-03-03T22:46:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -116,7 +133,7 @@
   
   <url>
     <loc>http://mmbros.github.io/</loc>
-    <lastmod>2017-03-03T15:58:00+00:00</lastmod>
+    <lastmod>2017-03-03T22:46:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -146,7 +163,7 @@
   
   <url>
     <loc>http://mmbros.github.io/post/</loc>
-    <lastmod>2017-03-03T15:58:00+00:00</lastmod>
+    <lastmod>2017-03-03T22:46:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -8,8 +8,74 @@
     <language>it</language>
     <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
     <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
-    <lastBuildDate>Fri, 03 Mar 2017 15:58:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Mar 2017 22:46:54 +0000</lastBuildDate>
     <atom:link href="http://mmbros.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deploy Hugo site on GitHub</title>
+      <link>http://mmbros.github.io/post/deploy-hugo-site-on-github/</link>
+      <pubDate>Fri, 03 Mar 2017 22:46:54 +0000</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/deploy-hugo-site-on-github/</guid>
+      <description>&lt;p&gt;Links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gohugo.io/tutorials/github-pages-blog/#hosting-personal-organization-pages&#34;&gt;Hugo - Hosting on GitHub Personal/Organization Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rcoedo.com/post/hugo-static-site-generator/&#34;&gt;Deploy your blog to github pages automatically using Hugo and Travis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ll create two separate repos, one for Hugo’s content, and a git submodule
+with the public folder’s content in it.&lt;/p&gt;
+
+&lt;p&gt;Step by step:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create on GitHub &lt;code&gt;&amp;lt;your-project&amp;gt;-hugo&lt;/code&gt; repository (it will host Hugo’s
+content)&lt;/li&gt;
+&lt;li&gt;Create on GitHub &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; repository (it will host the &lt;code&gt;public&lt;/code&gt;
+folder: the static website)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git clone &amp;lt;&amp;lt;your-project&amp;gt;-hugo-url&amp;gt; &amp;amp;&amp;amp; cd &amp;lt;your-project&amp;gt;-hugo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Make your website work locally (&lt;code&gt;hugo server --watch&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Once you are happy with the results, &lt;kbd&gt;Ctrl+C&lt;/kbd&gt; (kill
+server) and &lt;code&gt;rm -rf public&lt;/code&gt; (don&amp;rsquo;t worry, it can always be regenerated
+with &lt;code&gt;hugo&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git submodule add -b master https://github.com/&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io public&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Almost done: add a &lt;code&gt;deploy.sh&lt;/code&gt; script to help you (and make it executable:
+&lt;code&gt;chmod +x deploy.sh&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+echo -e &amp;quot;\033[0;32mDeploying updates to GitHub...\033[0m&amp;quot;
+
+# Build the project.
+hugo # if using a theme, replace by `hugo -t &amp;lt;yourtheme&amp;gt;`
+
+# Go To Public folder
+cd public
+
+# Add changes to git.
+git add -A
+
+# Commit changes.
+MSG=&amp;quot;rebuilding site `date`&amp;quot;
+if [ $# -eq 1 ]
+  then MSG=&amp;quot;$1&amp;quot;
+fi
+git commit -m &amp;quot;$MSG&amp;quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back
+cd ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;./deploy.sh &amp;quot;Your optional commit message&amp;quot;&lt;/code&gt; to send changes to &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; (careful, you may also want to commit changes on the &lt;code&gt;&amp;lt;your-project&amp;gt;-hugo&lt;/code&gt; repo).&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! Your personal page is running at &lt;a href=&#34;http://username.github.io/&#34;&gt;http://username.github.io/&lt;/a&gt; (after up to 10 minutes delay).&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About this site</title>
@@ -23,19 +89,13 @@
 
 &lt;h2 id=&#34;tecnologia-utilizzata&#34;&gt;Tecnologia utilizzata&lt;/h2&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;gohugo.io&#34;&gt;Hugo&lt;/a&gt; static site generator&lt;/p&gt;
+&lt;h3 id=&#34;hugo-gohugo-io-static-site-generator&#34;&gt;&lt;a href=&#34;gohugo.io&#34;&gt;Hugo&lt;/a&gt; static site generator&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://themes.gohugo.io/beautifulhugo/&#34;&gt;Hugo theme&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Deploying the blog to github pages&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://rcoedo.com/post/hugo-static-site-generator/&#34;&gt;Deploy your blog to github pages automatically using Hugo and Travis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://themes.gohugo.io/beautifulhugo/&#34;&gt;Theme: Beautiful Hugo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&#34;deploying-the-blog-to-github&#34;&gt;Deploying the blog to GitHub&lt;/h3&gt;
 </description>
     </item>
     
