@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev on MMbros</title>
+    <link>http://mmbros.github.io/tags/dev/</link>
+    <description>Recent content in Dev on MMbros</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
+    <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
+    <lastBuildDate>Tue, 07 Nov 2017 22:01:51 +0100</lastBuildDate>
+    
+	<atom:link href="http://mmbros.github.io/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install Hugo Site</title>
+      <link>http://mmbros.github.io/post/install-hugo-site/</link>
+      <pubDate>Tue, 07 Nov 2017 22:01:51 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/install-hugo-site/</guid>
+      <description> Get the contents from repository
+ git clone https://github.com/mmbros/site-hugo  Install the theme
+ cd site-hugo/themes git clone https://github.com/halogenica/beautifulhugo  Start server
+ cd site-hugo hugo server   </description>
+    </item>
+    
+  </channel>
+</rss>

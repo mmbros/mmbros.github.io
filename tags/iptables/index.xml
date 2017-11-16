@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on MMbros</title>
-    <link>http://mmbros.github.io/tags/linux/</link>
-    <description>Recent content in Linux on MMbros</description>
+    <title>Iptables on MMbros</title>
+    <link>http://mmbros.github.io/tags/iptables/</link>
+    <description>Recent content in Iptables on MMbros</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>it</language>
     <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
     <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
     <lastBuildDate>Wed, 08 Nov 2017 09:11:00 +0100</lastBuildDate>
     
-	<atom:link href="http://mmbros.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://mmbros.github.io/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,18 +20,6 @@
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/iptables/</guid>
       <description>Riferimenti  Iptables Tutorial 1.2.2 an as complete reference as possibly to iptables and netfilter iptables-boilerplate rock solid default firewall-rules for webhosts Building a Professional Firewall with Linux and Iptables from Daniel Miessler blog Linux IPTables: Incoming and Outgoing Rule Examples (SSH and HTTP)  Configurazione di esempio #!/bin/bash IPTABLES=/sbin/iptables SSH_PORT=22 ################################################################# # CLEAR ALL RULES ################################################################# # delete old rules $IPTABLES -F # delete every non-builtin chain $IPTABLES -X ################################################################# # DEFAULT POLICIES ################################################################# $IPTABLES -P INPUT DROP $IPTABLES -P FORWARD DROP $IPTABLES -P OUTPUT DROP ################################################################# # ALLOW DEFAULTS ################################################################# # allow anything on local interface $IPTABLES -A INPUT -i lo -j ACCEPT $IPTABLES -A OUTPUT -o lo -j ACCEPT # allow all packets that already have a connection $IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT # allow ICMP $IPTABLES -A INPUT -p icmp -j ACCEPT ################################################################# # MANAGE SSH ################################################################# # allow incoming SSH only from 192.</description>
-    </item>
-    
-    <item>
-      <title>NFS - Network File System</title>
-      <link>http://mmbros.github.io/post/nfs/</link>
-      <pubDate>Sun, 01 Nov 2015 23:12:31 +0100</pubDate>
-      <author>server.mmbros@yandex.com (MMbros)</author>
-      <guid>http://mmbros.github.io/post/nfs/</guid>
-      <description>Network File System, a distributed file system protocol Setting Up NFS How-To  Server Install the required packages:
- # apt-get install nfs-kernel-server  For easier maintenance we will isolate all NFS exports in single directory, where the real directories will be mounted with the &amp;ndash;bind option.
-Let&amp;rsquo;s say we want to export our multimedia directories in /media/disk. First we create the export filesystem:
-# mkdir -p /nfs-export/shared  It&amp;rsquo;s important that /nfs-export and /nfs-export/shared have 777 permissions as we will be accessing the NFS share from the client without LDAP/NIS authentication.</description>
     </item>
     
   </channel>

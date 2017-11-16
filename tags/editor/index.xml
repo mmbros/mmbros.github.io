@@ -2,13 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Editor on MMbros</title>
-    <link>http://mmbros.github.io/tags/editor/index.xml</link>
+    <link>http://mmbros.github.io/tags/editor/</link>
     <description>Recent content in Editor on MMbros</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>it</language>
     <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
     <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
-    <atom:link href="http://mmbros.github.io/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Oct 2015 23:36:05 +0100</lastBuildDate>
+    
+	<atom:link href="http://mmbros.github.io/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Atom</title>
@@ -16,15 +19,7 @@
       <pubDate>Sat, 31 Oct 2015 23:36:05 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/atom/</guid>
-      <description>&lt;p&gt;Atom is a free and open-source text and source code editor with support for plug-ins written in Node.js, and embedded Git Control, developed by GitHub.  The developers call Atom - &lt;em&gt;A hackable text editor for the 21st Century&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom homepage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://marcio.io/2015/07/supercharging-atom-editor-for-go-development/&#34;&gt;Supercharging the Atom Editor for Go Development&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://atom.io/packages/pigments&#34;&gt;pigments&lt;/a&gt; - A package to display colors in project and files.&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Atom is a free and open-source text and source code editor with support for plug-ins written in Node.js, and embedded Git Control, developed by GitHub.  The developers call Atom - &lt;em&gt;A hackable text editor for the 21st Century&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

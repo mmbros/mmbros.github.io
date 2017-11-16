@@ -2,14 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on MMbros</title>
-    <link>http://mmbros.github.io/post/index.xml</link>
+    <link>http://mmbros.github.io/post/</link>
     <description>Recent content in Posts on MMbros</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>it</language>
     <managingEditor>server.mmbros@yandex.com (MMbros)</managingEditor>
     <webMaster>server.mmbros@yandex.com (MMbros)</webMaster>
-    <lastBuildDate>Fri, 03 Mar 2017 22:46:54 +0000</lastBuildDate>
-    <atom:link href="http://mmbros.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Nov 2017 20:28:15 +0100</lastBuildDate>
+    
+	<atom:link href="http://mmbros.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Raspberry PI</title>
+      <link>http://mmbros.github.io/post/raspberrypi/</link>
+      <pubDate>Wed, 15 Nov 2017 20:28:15 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/raspberrypi/</guid>
+      <description>Samba Installazione  Installazione dei pacchetti necessari:
+# apt-get install samba  Ferma il servizio:
+# service smbd stop  Attenzione a non usare &amp;ldquo;samba&amp;rdquo; come servizio: nelle distribuzioni Debian e derivate il nome del servizio è stato cambiato da &amp;ldquo;samba&amp;rdquo; a &amp;ldquo;smbd&amp;rdquo;.
+ Salva il file di configurazione originale:
+# cp /etc/samba/smb.conf /etc/samba/smb.conf.old  Edita il file di configurazione /etc/samba/smb.conf:
+[globals] ### authentication ### security = user encrypt password = true [shared] comment = File multimediali path = /media/disk/ browsable = yes writeble = yes guest ok = no validusers = @sambashare   Creazione di un utente per Samba Crea l&amp;rsquo;utente sambauser senza home directory e senza shell e lo assegna al gruppo sambashare che è stato creato con l&amp;rsquo;installazione di samba:</description>
+    </item>
+    
+    <item>
+      <title>IPTables</title>
+      <link>http://mmbros.github.io/post/iptables/</link>
+      <pubDate>Wed, 08 Nov 2017 09:11:00 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/iptables/</guid>
+      <description>Riferimenti  Iptables Tutorial 1.2.2 an as complete reference as possibly to iptables and netfilter iptables-boilerplate rock solid default firewall-rules for webhosts Building a Professional Firewall with Linux and Iptables from Daniel Miessler blog Linux IPTables: Incoming and Outgoing Rule Examples (SSH and HTTP)  Configurazione di esempio #!/bin/bash IPTABLES=/sbin/iptables SSH_PORT=22 ################################################################# # CLEAR ALL RULES ################################################################# # delete old rules $IPTABLES -F # delete every non-builtin chain $IPTABLES -X ################################################################# # DEFAULT POLICIES ################################################################# $IPTABLES -P INPUT DROP $IPTABLES -P FORWARD DROP $IPTABLES -P OUTPUT DROP ################################################################# # ALLOW DEFAULTS ################################################################# # allow anything on local interface $IPTABLES -A INPUT -i lo -j ACCEPT $IPTABLES -A OUTPUT -o lo -j ACCEPT # allow all packets that already have a connection $IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT # allow ICMP $IPTABLES -A INPUT -p icmp -j ACCEPT ################################################################# # MANAGE SSH ################################################################# # allow incoming SSH only from 192.</description>
+    </item>
+    
+    <item>
+      <title>Install Hugo Site</title>
+      <link>http://mmbros.github.io/post/install-hugo-site/</link>
+      <pubDate>Tue, 07 Nov 2017 22:01:51 +0100</pubDate>
+      <author>server.mmbros@yandex.com (MMbros)</author>
+      <guid>http://mmbros.github.io/post/install-hugo-site/</guid>
+      <description> Get the contents from repository
+ git clone https://github.com/mmbros/site-hugo  Install the theme
+ cd site-hugo/themes git clone https://github.com/halogenica/beautifulhugo  Start server
+ cd site-hugo hugo server   </description>
+    </item>
     
     <item>
       <title>Deploy Hugo site on GitHub</title>
@@ -17,64 +54,10 @@
       <pubDate>Fri, 03 Mar 2017 22:46:54 +0000</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/deploy-hugo-site-on-github/</guid>
-      <description>&lt;p&gt;Links:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gohugo.io/tutorials/github-pages-blog/#hosting-personal-organization-pages&#34;&gt;Hugo - Hosting on GitHub Personal/Organization Pages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rcoedo.com/post/hugo-static-site-generator/&#34;&gt;Deploy your blog to github pages automatically using Hugo and Travis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We’ll create two separate repos, one for Hugo’s content, and a git submodule
-with the public folder’s content in it.&lt;/p&gt;
-
-&lt;p&gt;Step by step:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create on GitHub &lt;code&gt;&amp;lt;your-project&amp;gt;-hugo&lt;/code&gt; repository (it will host Hugo’s
-content)&lt;/li&gt;
-&lt;li&gt;Create on GitHub &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; repository (it will host the &lt;code&gt;public&lt;/code&gt;
-folder: the static website)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git clone &amp;lt;&amp;lt;your-project&amp;gt;-hugo-url&amp;gt; &amp;amp;&amp;amp; cd &amp;lt;your-project&amp;gt;-hugo&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Make your website work locally (&lt;code&gt;hugo server --watch&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Once you are happy with the results, &lt;kbd&gt;Ctrl+C&lt;/kbd&gt; (kill
-server) and &lt;code&gt;rm -rf public&lt;/code&gt; (don&amp;rsquo;t worry, it can always be regenerated
-with &lt;code&gt;hugo&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;git submodule add -b master https://github.com/&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io public&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Almost done: add a &lt;code&gt;deploy.sh&lt;/code&gt; script to help you (and make it executable:
-&lt;code&gt;chmod +x deploy.sh&lt;/code&gt;):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-echo -e &amp;quot;\033[0;32mDeploying updates to GitHub...\033[0m&amp;quot;
-
-# Build the project.
-hugo # if using a theme, replace by `hugo -t &amp;lt;yourtheme&amp;gt;`
-
-# Go To Public folder
-cd public
-
-# Add changes to git.
-git add -A
-
-# Commit changes.
-MSG=&amp;quot;rebuilding site `date`&amp;quot;
-if [ $# -eq 1 ]
-  then MSG=&amp;quot;$1&amp;quot;
-fi
-git commit -m &amp;quot;$MSG&amp;quot;
-
-# Push source and build repos.
-git push origin master
-
-# Come Back
-cd ..
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;./deploy.sh &amp;quot;Your optional commit message&amp;quot;&lt;/code&gt; to send changes to &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; (careful, you may also want to commit changes on the &lt;code&gt;&amp;lt;your-project&amp;gt;-hugo&lt;/code&gt; repo).&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;That&amp;rsquo;s it! Your personal page is running at &lt;a href=&#34;http://username.github.io/&#34;&gt;http://username.github.io/&lt;/a&gt; (after up to 10 minutes delay).&lt;/p&gt;
-</description>
+      <description>Links:
+ Hugo - Hosting on GitHub Personal/Organization Pages Deploy your blog to github pages automatically using Hugo and Travis  We’ll create two separate repos, one for Hugo’s content, and a git submodule with the public folder’s content in it.
+Step by step:
+ Create on GitHub &amp;lt;your-project&amp;gt;-hugo repository (it will host Hugo’s content) Create on GitHub &amp;lt;username&amp;gt;.github.io repository (it will host the public folder: the static website) git clone &amp;lt;&amp;lt;your-project&amp;gt;-hugo-url&amp;gt; &amp;amp;&amp;amp; cd &amp;lt;your-project&amp;gt;-hugo Make your website work locally (hugo server --watch) Once you are happy with the results, Ctrl+C (kill server) and rm -rf public (don&amp;rsquo;t worry, it can always be regenerated with hugo) git submodule add -b master https://github.</description>
     </item>
     
     <item>
@@ -83,20 +66,7 @@ cd ..
       <pubDate>Fri, 03 Mar 2017 15:58:00 +0000</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/about-this-site/</guid>
-      <description>
-
-&lt;h1 id=&#34;costruzione-del-sito&#34;&gt;Costruzione del sito&lt;/h1&gt;
-
-&lt;h2 id=&#34;tecnologia-utilizzata&#34;&gt;Tecnologia utilizzata&lt;/h2&gt;
-
-&lt;h3 id=&#34;hugo-gohugo-io-static-site-generator&#34;&gt;&lt;a href=&#34;gohugo.io&#34;&gt;Hugo&lt;/a&gt; static site generator&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://themes.gohugo.io/beautifulhugo/&#34;&gt;Theme: Beautiful Hugo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;deploying-the-blog-to-github&#34;&gt;Deploying the blog to GitHub&lt;/h3&gt;
-</description>
+      <description> Costruzione del sito Tecnologia utilizzata Hugo static site generator  Theme: Beautiful Hugo  Deploying the blog to GitHub </description>
     </item>
     
     <item>
@@ -105,100 +75,7 @@ cd ..
       <pubDate>Wed, 13 Apr 2016 23:25:21 +0200</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/monitoring/</guid>
-      <description>
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://influxdata.com/&#34;&gt;InfluxDB&lt;/a&gt; The platform for Storing/Managing/Collecting time-series data&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/influxdata/influxdb/tree/master/client&#34;&gt;InfluxDB Client&lt;/a&gt; A Go client library written and maintained by the InfluxDB team&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://grafana.org/&#34;&gt;Grafana&lt;/a&gt; Grafana provides a powerful and elegant way to create, explore, and share dashboards and data with your team and the world&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;influxdb&#34;&gt;InfluxDB&lt;/h2&gt;
-
-&lt;p&gt;InfluxDB is a time series database built from the ground up to handle high write and query loads. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.&lt;/p&gt;
-
-&lt;h4 id=&#34;key-features&#34;&gt;Key Features&lt;/h4&gt;
-
-&lt;p&gt;Here are some of the features that InfluxDB currently supports that make it a great choice for working with time series data.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Custom high performance datastore written specifically for time series data. The TSM engine allows for high ingest speed and data compression.&lt;/li&gt;
-&lt;li&gt;Written entirely in Go. It compiles into a single binary with no external dependencies.&lt;/li&gt;
-&lt;li&gt;Clustering is built in. Nothing else is needed to make data highly available (unlike Redis, ZooKeeper, Cassandra, and others).&lt;/li&gt;
-&lt;li&gt;Simple, high performing write and query HTTP(S) APIs.&lt;/li&gt;
-&lt;li&gt;Plugins support for other data ingestion protocols such as Graphite, collectd, and OpenTSDB.&lt;/li&gt;
-&lt;li&gt;Expressive SQL-like query language tailored to easily query aggregated data.&lt;/li&gt;
-&lt;li&gt;Tags allow series to be indexed for fast and efficient queries.&lt;/li&gt;
-&lt;li&gt;Retention policies efficiently auto-expire stale data.&lt;/li&gt;
-&lt;li&gt;Continuous queries automatically compute aggregate data to make frequent queries more efficient.&lt;/li&gt;
-&lt;li&gt;Built in web admin interface.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
-
-&lt;p&gt;Installation instructions for OS: &lt;strong&gt;Ubuntu &amp;amp; Debian (64-bit)&lt;/strong&gt; and InfluxDB version: &lt;strong&gt;Stable v0.12.1&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Download &lt;code&gt;.deb&lt;/code&gt; file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://s3.amazonaws.com/influxdb/influxdb_0.12.1-1_amd64.deb
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Check &lt;code&gt;.deb&lt;/code&gt; file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &#39;465e6cd66eb6dd23592386ce7d19136f  influxdb_0.12.1-1_amd64.deb&#39; |  md5sum -c
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Install &lt;code&gt;.deb&lt;/code&gt; file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo dpkg -i influxdb_0.12.1-1_amd64.deb
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Start the &lt;code&gt;influxd&lt;/code&gt; server by&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;starting the service: &lt;code&gt;service influxdb start&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;or running &lt;code&gt;influxd&lt;/code&gt; directly in a shell&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Execute &lt;code&gt;influx&lt;/code&gt; to start the CLI and automatically connect to the local InfluxDB instance&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Create and show a database&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;create database mydb
-show databases
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;grafana&#34;&gt;Grafana&lt;/h2&gt;
-
-&lt;h3 id=&#34;install-3-0-beta&#34;&gt;Install 3.0 Beta&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://docs.grafana.org/installation/debian/&#34;&gt;http://docs.grafana.org/installation/debian/&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ wget https://grafanarel.s3.amazonaws.com/builds/grafana_3.0.0-beta41460581169_amd64.deb
-  $ sudo apt-get install -y adduser libfontconfig
-  $ sudo dpkg -i grafana_3.0.0-beta41460581169_amd64.deb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;start-the-server-init-d-service&#34;&gt;Start the server (init.d service)&lt;/h3&gt;
-
-&lt;p&gt;Start Grafana by running:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ sudo service grafana-server start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will start the grafana-server process as the grafana user, which was created during the package installation. The default HTTP port is 3000 and default user and group is admin.&lt;/p&gt;
-
-&lt;p&gt;To configure the Grafana server to start at boot time:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ sudo update-rc.d grafana-server defaults 95 10
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>InfluxDB The platform for Storing/Managing/Collecting time-series data InfluxDB Client A Go client library written and maintained by the InfluxDB team Grafana Grafana provides a powerful and elegant way to create, explore, and share dashboards and data with your team and the world  InfluxDB InfluxDB is a time series database built from the ground up to handle high write and query loads. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.</description>
     </item>
     
     <item>
@@ -207,16 +84,7 @@ show databases
       <pubDate>Fri, 13 Nov 2015 23:42:59 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/font/</guid>
-      <description>
-
-&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://icomoon.io/&#34;&gt;IcoMoon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://icomoon.io/app&#34;&gt;Build Custom Fonts&lt;/a&gt; IcoMoon App&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.typicons.com/more/resources/&#34;&gt;Typeicons&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Resources  IcoMoon Build Custom Fonts IcoMoon App Typeicons  </description>
     </item>
     
     <item>
@@ -225,13 +93,8 @@ show databases
       <pubDate>Thu, 12 Nov 2015 22:21:50 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/git/</guid>
-      <description>&lt;p&gt;Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt; homepage&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.atlassian.com/git/tutorials/setting-up-a-repository&#34;&gt;Become a git guru&lt;/a&gt; Getting Git right, with tutorials, news and tips&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+ Git homepage Become a git guru Getting Git right, with tutorials, news and tips  </description>
     </item>
     
     <item>
@@ -243,53 +106,7 @@ show databases
       <description>&lt;p&gt;Node.js is a JavaScript runtime built on Chrome&amp;rsquo;s V8 JavaScript engine.
 Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.
 Node.js&amp;rsquo; package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
-&lt;/p&gt;
-
-&lt;h3 id=&#34;links&#34;&gt;Links&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; homepage&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
-
-&lt;h3 id=&#34;links-1&#34;&gt;Links&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://nodejs.org/dist/v0.12.0/node-v0.12.0.tar.gz&#34;&gt;Node.js Downloads&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/joyent/node/wiki/installation&#34;&gt;Installing/Building Node.js&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;build-instruction&#34;&gt;Build instruction&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;download source code from &lt;a href=&#34;http://nodejs.org/&#34;&gt;nodejs.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ wget http://nodejs.org/dist/v0.12.0/node-v0.12.0.tar.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;extract and change directory&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ tar -zxf node-v0.12.0.tar.gz
-$ cd node-v0.12.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;build and install (in a local folder)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ./configure
-$ make
-$ make install PREFIX=$HOME/local
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;package-json&#34;&gt;package.json&lt;/h2&gt;
-
-&lt;h3 id=&#34;create&#34;&gt;create&lt;/h3&gt;
-
-&lt;p&gt;Interactively create a package.json file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;npn init
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -298,73 +115,11 @@ $ make install PREFIX=$HOME/local
       <pubDate>Tue, 03 Nov 2015 23:38:29 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/webdev/</guid>
-      <description>
-
-&lt;h1 id=&#34;web-project-template&#34;&gt;Web project template&lt;/h1&gt;
-
-&lt;h2 id=&#34;node-gulp-git&#34;&gt;node + gulp + git&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Create project folder and change directory.
-The &lt;code&gt;$_&lt;/code&gt; (dollar underscore) bash command variable contains the most recent parameter.
-   mkdir &lt;appdir&gt; &amp;amp;&amp;amp; cd $_&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Inizialize &lt;code&gt;git&lt;/code&gt; repository and create &lt;code&gt;.gitignore&lt;/code&gt; file
-   git init
-   echo &amp;ldquo;/node_modules&amp;rdquo; &amp;gt; .gitignore&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Create and initialize &lt;code&gt;package.json&lt;/code&gt;
-   npm init&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Install &lt;code&gt;gulp&lt;/code&gt; and save in &lt;code&gt;devDependencies&lt;/code&gt; section of &lt;code&gt;package.json&lt;/code&gt;
-   npm install gulp -D&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Install some packages for gulp tasks
-   npm install browser-sync gulp-sass gulp-autoprefixer gulp-sourcemaps del -D&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Don&amp;rsquo;t mind if eventually will occur the warning:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;   npm WARN prefer global node-gyp@3.2.0 should be installed with -g
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Create the &lt;code&gt;gulpfile.js&lt;/code&gt;
-   touch gulpfile.js&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Edit &lt;code&gt;gulpfile.js&lt;/code&gt; as:
-   var gulp = require(&amp;lsquo;gulp&amp;rsquo;)
-   var sass = require(&amp;lsquo;gulp-sass&amp;rsquo;)
-   var autoprefixer = require(&amp;lsquo;gulp-autoprefixer&amp;rsquo;)
-   var sourcemaps = require(&amp;lsquo;gulp-sourcemaps&amp;rsquo;)&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
-
-&lt;h2 id=&#34;package-manager&#34;&gt;Package manager&lt;/h2&gt;
-
-&lt;h3 id=&#34;bower-http-bower-io&#34;&gt;&lt;a href=&#34;http://bower.io/&#34;&gt;Bower&lt;/a&gt;&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://bower.io/&#34;&gt;Bower homepage&lt;/a&gt; A package manager for the web&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://code.tutsplus.com/tutorials/meet-bower-a-package-manager-for-the-web--net-27774&#34;&gt;Meet Bower: A Package Manager For The Web&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;build-tools-task-runners&#34;&gt;Build tools / Task Runners&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/&#34;&gt;Grunt&lt;/a&gt; The JavaScript Task Runner&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;Gulp&lt;/a&gt; Automate and enhance your workflow&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/broccolijs/broccoli&#34;&gt;Broccoli&lt;/a&gt; Browser compilation library – an asset pipeline for applications that run in the browser&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://mimosa.io/index.html&#34;&gt;Mimosa&lt;/a&gt; a build tool for modern web development&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;links&#34;&gt;links&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://jpsierens.com/task-runners-a-comparison-between-grunt-gulp-broccoli-and-mimosa/&#34;&gt;Task Runners, A comparison between Grunt, Gulp, Broccoli and Mimosa&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Web project template node + gulp + git  Create project folder and change directory. The $_ (dollar underscore) bash command variable contains the most recent parameter. mkdir  &amp;amp;&amp;amp; cd $_
+ Inizialize git repository and create .gitignore file git init echo &amp;ldquo;/node_modules&amp;rdquo; &amp;gt; .gitignore
+ Create and initialize package.json npm init
+ Install gulp and save in devDependencies section of package.json npm install gulp -D
+ Install some packages for gulp tasks npm install browser-sync gulp-sass gulp-autoprefixer gulp-sourcemaps del -D</description>
     </item>
     
     <item>
@@ -373,29 +128,10 @@ The &lt;code&gt;$_&lt;/code&gt; (dollar underscore) bash command variable contai
       <pubDate>Tue, 03 Nov 2015 23:00:00 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/sass/</guid>
-      <description>
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;Sass&lt;/a&gt; is an extension of CSS3 which adds nested rules, variables, mixins, selector inheritance, and more. Sass generates well formatted CSS and makes your stylesheets easier to organize and maintain&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://breakpoint-sass.com/&#34;&gt;Breakpoint&lt;/a&gt; Really Simple, Organized, Media Queries with Sass&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://compass-style.org/&#34;&gt;Compass&lt;/a&gt; is an open-source CSS Authoring Framework. Compass uses Sass (and Ruby)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://susy.oddbird.net/&#34;&gt;Susy&lt;/a&gt; is an agnostic set of tools for creating powerful, custom layouts. We provide the language, but you provide all the opinions. Use a grid, don’t use a grid, or use a combination of grids — it’s all up to you. Your markup, your design, your opinions | our math&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://susydocs.oddbird.net/en/latest/install/&#34;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;links&#34;&gt;links&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.webdesignerdepot.com/2013/11/how-to-write-simple-elegant-css-with-compass-sass/&#34;&gt;How to write simple, elegant CSS with Compass &amp;amp; Sass&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.webdesignerdepot.com/2013/11/the-beginners-guide-to-sass/&#34;&gt;The beginner’s guide to Sass&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Sass is an extension of CSS3 which adds nested rules, variables, mixins, selector inheritance, and more. Sass generates well formatted CSS and makes your stylesheets easier to organize and maintain
+ Breakpoint Really Simple, Organized, Media Queries with Sass
+ Compass is an open-source CSS Authoring Framework. Compass uses Sass (and Ruby)
+ Susy is an agnostic set of tools for creating powerful, custom layouts. We provide the language, but you provide all the opinions.</description>
     </item>
     
     <item>
@@ -404,23 +140,10 @@ The &lt;code&gt;$_&lt;/code&gt; (dollar underscore) bash command variable contai
       <pubDate>Sun, 01 Nov 2015 23:12:31 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/nfs/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Network_File_System&#34;&gt;Network File System&lt;/a&gt;, a distributed file system protocol&lt;/p&gt;
-
-&lt;h2 id=&#34;client&#34;&gt;Client&lt;/h2&gt;
-
-&lt;h3 id=&#34;fstab&#34;&gt;fstab&lt;/h3&gt;
-
-&lt;h4 id=&#34;delaying-a-nfs-mount-in-etc-fstab-on-system-boot&#34;&gt;Delaying a NFS mount in &lt;code&gt;/etc/fstab&lt;/code&gt; on system boot.&lt;/h4&gt;
-
-&lt;p&gt;Mounts as &lt;code&gt;noauto,users&lt;/code&gt; makes it possible for a user to mount it whenever its ready.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;192.168.1.2:/export/share /media/SHARED nfs noauto,users,defaults 0 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;server&#34;&gt;Server&lt;/h2&gt;
-</description>
+      <description>Network File System, a distributed file system protocol Setting Up NFS How-To  Server Install the required packages:
+ # apt-get install nfs-kernel-server  For easier maintenance we will isolate all NFS exports in single directory, where the real directories will be mounted with the &amp;ndash;bind option.
+Let&amp;rsquo;s say we want to export our multimedia directories in /media/disk. First we create the export filesystem:
+# mkdir -p /nfs-export/shared  It&amp;rsquo;s important that /nfs-export and /nfs-export/shared have 777 permissions as we will be accessing the NFS share from the client without LDAP/NIS authentication.</description>
     </item>
     
     <item>
@@ -429,15 +152,7 @@ The &lt;code&gt;$_&lt;/code&gt; (dollar underscore) bash command variable contai
       <pubDate>Sat, 31 Oct 2015 23:36:05 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/atom/</guid>
-      <description>&lt;p&gt;Atom is a free and open-source text and source code editor with support for plug-ins written in Node.js, and embedded Git Control, developed by GitHub.  The developers call Atom - &lt;em&gt;A hackable text editor for the 21st Century&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom homepage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://marcio.io/2015/07/supercharging-atom-editor-for-go-development/&#34;&gt;Supercharging the Atom Editor for Go Development&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://atom.io/packages/pigments&#34;&gt;pigments&lt;/a&gt; - A package to display colors in project and files.&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Atom is a free and open-source text and source code editor with support for plug-ins written in Node.js, and embedded Git Control, developed by GitHub.  The developers call Atom - &lt;em&gt;A hackable text editor for the 21st Century&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -446,71 +161,11 @@ The &lt;code&gt;$_&lt;/code&gt; (dollar underscore) bash command variable contai
       <pubDate>Sat, 31 Oct 2015 23:12:13 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/golang/</guid>
-      <description>
-
-&lt;p&gt;Go is an open source programming language that makes it easy to build simple,
-reliable, and efficient software&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://golang.org/&#34;&gt;golang.org&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;wikipedia.en&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-
-&lt;p&gt;Install to a custom location and workspace setup:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://golang.org/doc/install#tarball&#34;&gt;GOROOT&lt;/a&gt;: &lt;code&gt;$HOME/local/go&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://golang.org/doc/code.html#GOPATH&#34;&gt;GOPATH&lt;/a&gt;: &lt;code&gt;$HOME/Code/go&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For full install instruction see &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;Getting Started&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://golang.org/dl/&#34;&gt;Download the archive&lt;/a&gt; and extract the archive into the destination folder.
-For example extract the archive into &lt;code&gt;$HOME/local&lt;/code&gt;, creating a Go tree in &lt;code&gt;$HOME/local/go&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tar -C $HOME/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Assuming that &lt;code&gt;$HOME/local/bin&lt;/code&gt; is in &lt;code&gt;$PATH&lt;/code&gt;,
-create in the &lt;code&gt;$HOME/local/bin&lt;/code&gt; folder the symlinks to the &lt;code&gt;$HOME/local/go/bin&lt;/code&gt; files:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for i in $HOME/local/go/bin/\*; do ln -s &amp;quot;$i&amp;quot; $(basename &amp;quot;$i&amp;quot;); done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Add the following commands to $HOME/.profile:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export GOROOT=$HOME/local/go
-export GOPATH=$HOME/Code/go
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note: &lt;code&gt;GOROOT&lt;/code&gt; must be set only when installing to a custom location.&lt;/p&gt;
-
-&lt;h1 id=&#34;notes&#34;&gt;NOTES&lt;/h1&gt;
-
-&lt;h2 id=&#34;train&#34;&gt;train&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/shaoshing/train&#34;&gt;train&lt;/a&gt; Asset Management for web app using Golang&lt;/p&gt;
-
-&lt;h2 id=&#34;wellington&#34;&gt;wellington&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://getwt.io/docs/install/&#34;&gt;Building from Source (any OS)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Prerequisites &lt;code&gt;go&lt;/code&gt;, &lt;code&gt;gcc&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get github.com/wellington/wellington
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If &lt;code&gt;go get&lt;/code&gt; fails, try the makefile preqrequisites &lt;code&gt;autotools&lt;/code&gt;, &lt;code&gt;libtool&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd $(GOPATH)/src/github.com/wellington/wellington
-make
-wt -v
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ensure that &lt;code&gt;$GOPATH/bin&lt;/code&gt; in in &lt;code&gt;$PATH&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software
+ golang.org wikipedia.en  Installation Install to a custom location and workspace setup:
+ GOROOT: $HOME/local/go GOPATH: $HOME/Code/go  For full install instruction see Getting Started.
+Download the archive and extract the archive into the destination folder. For example extract the archive into $HOME/local, creating a Go tree in $HOME/local/go:
+tar -C $HOME/local -xzf go$VERSION.</description>
     </item>
     
     <item>
@@ -519,14 +174,8 @@ wt -v
       <pubDate>Sat, 31 Oct 2015 22:58:05 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/markdown/</guid>
-      <description>&lt;p&gt;Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Daring Fireball&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;wikipedia.en&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://jbt.github.io/markdown-editor/&#34;&gt;(GitHub-Flavored) Markdown Editor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats
+ Daring Fireball wikipedia.en (GitHub-Flavored) Markdown Editor  </description>
     </item>
     
     <item>
@@ -535,14 +184,8 @@ wt -v
       <pubDate>Sat, 31 Oct 2015 22:34:11 +0100</pubDate>
       <author>server.mmbros@yandex.com (MMbros)</author>
       <guid>http://mmbros.github.io/post/bootstrap/</guid>
-      <description>&lt;p&gt;Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://getbootstrap.com/&#34;&gt;Bootstrap Homepage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://bootswatch.com/&#34;&gt;Bootswatch&lt;/a&gt; Free themes for Bootstrap&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://wrapbootstrap.com/&#34;&gt;{wrap}bootstrap&lt;/a&gt; Bootstrap Themes &amp;amp; Templates&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
+ Bootstrap Homepage Bootswatch Free themes for Bootstrap {wrap}bootstrap Bootstrap Themes &amp;amp; Templates  </description>
     </item>
     
   </channel>
